@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRS Search</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            text-align: center;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #dcdcdc;
+            padding: 10px;
+            border-radius: 25px;
+            width: 400px;
+            margin: auto;
+            background-color: white;
+        }
+        .search-input {
+            border: none;
+            outline: none;
+            font-size: 18px;
+            width: 100%;
+            padding: 5px;
+        }
+        .search-button {
+            background-color: #4285f4;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            padding: 5px 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IRS Search</h1>
+        <div class="search-box">
+            <input type="text" id="searchQuery" class="search-input" placeholder="Search IRS..." autofocus>
+            <button class="search-button" onclick="performSearch()">🔍</button>
+        </div>
+    </div>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById("searchQuery").value.trim();
+            if (query) {
+                const url = `https://www.irs.gov/search?q=${encodeURIComponent(query)}`;
+                window.open(url, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
